@@ -1,0 +1,20 @@
+<h1>Contact Keeper</h1>
+<div id="new-post-form">
+    <h2> Create Contact</h2>
+    <input type="text" placeholder="First Name" plat-bind="contact.firstName" class="fields">
+    <input type="text" placeholder="Last Name" plat-bind="contact.lastName" class="fields">
+    <br><br>
+    <input type="text" placeholder="Email Address" plat-bind="contact.email" class="fields">
+    <input type="text" placeholder="Phone Number" plat-bind="contact.phoneNumber" class="fields">
+    <br><br>
+    <button plat-tap="saveContact()" class="btns">Create Contact</button>
+    <br><br>
+</div>
+<hr>
+<plat-foreach plat-context="contacts">
+    <div class="contact">
+        <h3>{{ firstName }} {{ lastName }}</h3>
+        <p>{{ email }} | {{ phoneNumber }}</p>
+        <p><plat-link plat-options="{ view: @rootContext.contactVC, parameters: { id: @index } }">View</plat-link></p>
+    </div>
+</plat-foreach>
